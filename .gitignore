@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.env
+data/
+*.db
+*.db-shm
+*.db-wal
+client/dist/
+server/.env
+.DS_Store
+*.zip
+*.tar.gz
+bin/
+obj/
+package-lock.json
+.~lock.*
+Task.pdf
