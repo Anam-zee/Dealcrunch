@@ -12,6 +12,5 @@ server/.env
 *.tar.gz
 bin/
 obj/
-package-lock.json
 .~lock.*
 Task.pdf
