@@ -7,6 +7,15 @@ export interface AuthedRequest extends Request {
   user: { id: string; email: string }
 }
 
+// Augment Express's Request type so casts don't fail
+declare global {
+  namespace Express {
+    interface Request {
+      user?: { id: string; email: string }
+    }
+  }
+}
+
 export function requireAuth(req: Request, res: Response, next: NextFunction): void {
   const header = req.headers.authorization
   if (!header?.startsWith('Bearer ')) {

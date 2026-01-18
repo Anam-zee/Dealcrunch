@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Card } from '../../components/ui/Card'
-import { MetricCard } from '../../components/ui/MetricCard'
 import { api } from '../../lib/api'
 import { dollars, pct } from '../../lib/format'
 import type { Scenario, ProformaResult } from '../../types'

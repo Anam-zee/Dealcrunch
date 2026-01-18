@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
+import jwt, { type SignOptions } from 'jsonwebtoken'
 import { z } from 'zod'
 import { v4 as uuidv4 } from 'uuid'
 import { User } from '../db/models.js'
@@ -26,7 +26,7 @@ router.post('/register', async (req, res, next) => {
 
     const token = jwt.sign({ sub: user.id, email }, config.JWT_SECRET, {
       expiresIn: config.JWT_EXPIRES_IN,
-    })
+    } as SignOptions)
     res.status(201).json({ token })
   } catch (err) {
     next(err)
@@ -44,7 +44,7 @@ router.post('/login', async (req, res, next) => {
 
     const token = jwt.sign({ sub: user.id, email }, config.JWT_SECRET, {
       expiresIn: config.JWT_EXPIRES_IN,
-    })
+    } as SignOptions)
     res.json({ token })
   } catch (err) {
     next(err)

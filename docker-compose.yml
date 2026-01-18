@@ -5,7 +5,7 @@ services:
     image: postgres:16-alpine
     environment:
       POSTGRES_USER: dev
-      POSTGRES_PASSWORD: ''
+      POSTGRES_PASSWORD: '123'
       POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_DB: dealcrunch
     ports:
@@ -22,12 +22,13 @@ services:
     environment:
       PORT: 3001
       DATABASE_URL: postgresql://dev:@postgres:5432/dealcrunch
-      JWT_SECRET: ${JWT_SECRET:-dev-secret-change-in-prod}
+      JWT_SECRET: devenvdevenvdevenvdevenv
       JWT_EXPIRES_IN: 7d
       CORS_ORIGIN: http://localhost:5174
       NODE_ENV: production
     depends_on:
       - postgres
+    restart: on-failure
 
   client:
     build:
